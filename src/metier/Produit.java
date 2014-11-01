@@ -19,7 +19,15 @@ public class Produit {
 
 	}
 
-	public void finalize() throws Throwable {
+    public Produit(String description, String libelle, int prixDuJour, String reference)
+    {
+        this.description = description;
+        this.libelle = libelle;
+        this.prixDuJour = prixDuJour;
+        this.reference = reference;
+    }
+
+    public void finalize() throws Throwable {
 
 	}
 
