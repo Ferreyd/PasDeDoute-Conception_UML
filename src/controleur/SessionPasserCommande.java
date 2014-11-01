@@ -2,7 +2,12 @@ package controleur;
 
 import metier.Client;
 import metier.Commande;
+import metier.LigneDeCommande;
 import metier.Produit;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Random;
 
 /**
  * @author Nicolas
@@ -21,17 +26,51 @@ public class SessionPasserCommande {
 
 
     /**
-     * Methode qui permet de passer une commande d'un produit
-     * @param client Le client souhaitant passer une commande
-     * @param commande La commande que le client passe
-     * @return true si la commande a été ajouté, false sinon
+     * Creer une commande a partir d'un produit
+     * @param produit Le produit a ajouter dans une commande
+     * @return une Commande
      */
-    public boolean passerCommande(Client client, Commande commande)
+    private Commande creerCommande(ArrayList<Produit> produit)
     {
-        if(client.getM_Commande().add(commande))
+
+        return new Commande(new Date(),"ok",produit.get(0).getPrixDuJour(), new Random().nextInt(), new LigneDeCommande(produit.get(0).getPrixDuJour(), 1),produit);
+    }
+
+    /**
+     * Creer une commande à partir d'une liste de produit
+     * @param produits Une liste de produits
+     * @return une Commande
+     */
+    private Commande creerCommandes(ArrayList<Produit> produits)
+    {
+        int montant = 0;
+        for(int i = 0; i < produits.size(); i++)
         {
+            montant += produits.get(i).getPrixDuJour();
+        }
+        return new Commande(new Date(),"ok",montant, new Random().nextInt(), new LigneDeCommande(montant, produits.size()),produits);
+    }
+
+
+    /**
+     * Permet de passer une commande en fonction d'une liste de produit et l'affecte à un client
+     * @param client le client
+     * @param produits la liste de produit
+     * @return true si la commande est passe, false si la commande n est pas passe
+     */
+    public boolean passerCommande(Client client, ArrayList<Produit> produits)
+    {
+        if(produits.size() == 1)
+        {
+            client.getM_Commande().add(this.creerCommande(produits));
             return true;
-        }else
+        }
+        else if(produits.size() > 1)
+        {
+            client.getM_Commande().add(this.creerCommandes(produits));
+            return true;
+        }
+        else
         {
             return false;
         }
