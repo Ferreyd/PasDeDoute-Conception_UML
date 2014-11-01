@@ -30,7 +30,9 @@ public class Execution extends JFrame
         panelPrincipal.add(menuHaut);
         JPanel acceuil = new EcranAcceuil();
         panelPrincipal.add(acceuil);
+
         f.getContentPane().add(panelPrincipal);
+
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.pack();
         f.setSize(1024,1024);

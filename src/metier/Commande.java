@@ -82,4 +82,9 @@ public class Commande {
     {
         this.m_LigneDeCommande = m_LigneDeCommande;
     }
+
+    public ArrayList<Produit> getProduits()
+    {
+        return produits;
+    }
 }//end Commande

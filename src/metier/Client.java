@@ -15,13 +15,18 @@ public class Client {
 	private String nom;
 	private int numeroClient;
 	private String prenom;
-	public ArrayList<Commande> m_Commande;
+	public ArrayList<Commande> m_Commande = new ArrayList<Commande>();
 
-	public Client(){
+    public Client(String adresseFacturation, String adresseLivraison, String nom, int numeroClient, String prenom)
+    {
+        this.adresseFacturation = adresseFacturation;
+        this.adresseLivraison = adresseLivraison;
+        this.nom = nom;
+        this.numeroClient = numeroClient;
+        this.prenom = prenom;
+    }
 
-	}
-
-	public void finalize() throws Throwable {
+    public void finalize() throws Throwable {
 
 	}
 

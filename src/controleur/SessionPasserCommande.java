@@ -48,7 +48,11 @@ public class SessionPasserCommande {
         {
             montant += produits.get(i).getPrixDuJour();
         }
-        return new Commande(new Date(),"ok",montant, new Random().nextInt(), new LigneDeCommande(montant, produits.size()),produits);
+        System.out.println("### Montant = " + montant + "###");
+
+        Commande m = new Commande(new Date(),"ok",montant, new Random().nextInt(), new LigneDeCommande(montant, produits.size()),produits);
+        System.out.println("### Commande = " + m.toString() + " ###");
+        return m;
     }
 
 
@@ -60,6 +64,8 @@ public class SessionPasserCommande {
      */
     public boolean passerCommande(Client client, ArrayList<Produit> produits)
     {
+        System.out.println("###Client = " + client.toString() + "###");
+        System.out.println("### Produits = " + produits.toArray() + "###");
         if(produits.size() == 1)
         {
             client.getM_Commande().add(this.creerCommande(produits));

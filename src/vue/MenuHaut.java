@@ -13,7 +13,6 @@ public class MenuHaut extends JPanel
 {
     private JButton acceuil = new JButton("acceuil");
     private JButton catalogue = new JButton("catalogue");
-    private JButton compte = new JButton("compte");
 
     public MenuHaut(final Execution frame)
     {
@@ -21,30 +20,28 @@ public class MenuHaut extends JPanel
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                frame.setContentPane(frame.getEcranAcceuil());
+                System.out.println("### Clique bouton acceuil ###");
+                frame.setContentPane(new EcranAcceuil());
+                System.out.println("### appel JPanel ###");
                 frame.getEcranAcceuil().revalidate();
+                System.out.println("### Revalidate ###");
             }
         });
         catalogue.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e)
             {
+                System.out.println("### Clique bouton catalogue ###");
                 frame.setContentPane(frame.getCatalogue());
+                System.out.println("### appel JPanel ###");
                 frame.getCatalogue().revalidate();
+                System.out.println("### Revalidate ###");
             }
         });
-        compte.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
-                frame.setContentPane(frame.getCompte());
-                frame.getCompte().revalidate();
-            }
-        });
+
 
 
         this.add(acceuil);
         this.add(catalogue);
-        this.add(compte);
     }
 }
