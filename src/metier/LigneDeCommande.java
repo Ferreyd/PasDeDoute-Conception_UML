@@ -11,9 +11,11 @@ public class LigneDeCommande {
 	private int montant;
 	private int quantite;
 
-	public LigneDeCommande(){
-
-	}
+    public LigneDeCommande(int montant, int quantite)
+    {
+        this.montant = montant;
+        this.quantite = quantite;
+    }
 
     public int getMontant()
     {

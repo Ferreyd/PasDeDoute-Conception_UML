@@ -1,6 +1,7 @@
 package metier;
 
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -15,12 +16,20 @@ public class Commande {
 	private int montant;
 	private int numeroCommande;
 	public LigneDeCommande m_LigneDeCommande;
+    private ArrayList<Produit> produits;
 
-	public Commande(){
 
-	}
+    public Commande(Date dateCommande, String etat, int montant, int numeroCommande, LigneDeCommande m_LigneDeCommande, ArrayList<Produit> produits)
+    {
+        this.dateCommande = dateCommande;
+        this.etat = etat;
+        this.montant = montant;
+        this.numeroCommande = numeroCommande;
+        this.m_LigneDeCommande = m_LigneDeCommande;
+        this.produits = produits;
+    }
 
-	public void finalize() throws Throwable {
+    public void finalize() throws Throwable {
 
 	}
 
