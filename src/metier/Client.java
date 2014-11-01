@@ -1,6 +1,8 @@
 package metier;
 
 
+import java.util.ArrayList;
+
 /**
  * @author Nicolas
  * @version 1.0
@@ -13,7 +15,7 @@ public class Client {
 	private String nom;
 	private int numeroClient;
 	private String prenom;
-	public Commande m_Commande;
+	public ArrayList<Commande> m_Commande;
 
 	public Client(){
 
@@ -73,12 +75,12 @@ public class Client {
         this.prenom = prenom;
     }
 
-    public Commande getM_Commande()
+    public ArrayList<Commande> getM_Commande()
     {
         return m_Commande;
     }
 
-    public void setM_Commande(Commande m_Commande)
+    public void setM_Commande(ArrayList<Commande> m_Commande)
     {
         this.m_Commande = m_Commande;
     }
