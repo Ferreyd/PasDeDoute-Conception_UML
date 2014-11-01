@@ -7,6 +7,5 @@ import javax.swing.*;
  */
 public class Compte
 {
-    private JPanel menuHaut = new MenuHaut();
     private JTextArea infoCompte;
 }
