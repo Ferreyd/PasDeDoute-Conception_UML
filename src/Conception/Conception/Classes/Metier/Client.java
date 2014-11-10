@@ -110,7 +110,7 @@ public class Client {
 	 * @param pseudo
 	 * @param motDePasse
 	 */
-	public Client rechercherClientParPseudo(String pseudo, String motDePasse){
+	public static Client rechercherClientParPseudo(String pseudo, String motDePasse){
 		return null;
 	}
 }//end Client

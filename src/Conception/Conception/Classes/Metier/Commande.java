@@ -1,6 +1,8 @@
 package Conception.Conception.Classes.Metier;
 
 
+import java.util.Date;
+
 /**
  * @author Nicolas
  * @version 1.0

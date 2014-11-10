@@ -72,6 +72,9 @@ public class SessionPasserCommande {
 	 */
 	public void traiterIdentification(String pseudo, String motDePasse){
 
+		Client c = new Client();
+		c = Client.rechercherClientParPseudo(pseudo,motDePasse);
+
 
 	}
 
