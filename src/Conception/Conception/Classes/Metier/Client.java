@@ -1,6 +1,8 @@
 package Conception.Conception.Classes.Metier;
 
 
+import java.util.LinkedList;
+
 /**
  * @author Nicolas
  * @version 1.0
@@ -8,6 +10,7 @@ package Conception.Conception.Classes.Metier;
  */
 public class Client {
 
+	private static LinkedList<Client> listeClients;
 	private String adresseFacturation;
 	private String adresseLivraison;
 	private String motDePasse;
@@ -105,12 +108,33 @@ public class Client {
 		this.m_Commande = m_Commande;
 	}
 
+	public static LinkedList<Client> getListeClients()
+	{
+		return listeClients;
+	}
+
+	public void setListeClients(LinkedList<Client> listeClients)
+	{
+		this.listeClients = listeClients;
+	}
+
 	/**
 	 * 
 	 * @param pseudo
 	 * @param motDePasse
 	 */
 	public static Client rechercherClientParPseudo(String pseudo, String motDePasse){
-		return null;
+		Client c = new Client();
+		for(Client client : listeClients)
+		{
+			if(client.getPseudo().equals(pseudo) && client.getMotDePasse().equals(motDePasse))
+			{
+				c = client;
+			}else
+			{
+				return null;
+			}
+		}
+		return c;
 	}
 }//end Client

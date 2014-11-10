@@ -12,6 +12,8 @@ import java.util.ArrayList;
  */
 public class SessionPasserCommande {
 
+	private TypeEcran ecranCourant;
+
 	public SessionPasserCommande(){
 
 	}
@@ -70,12 +72,17 @@ public class SessionPasserCommande {
 	 * @param pseudo
 	 * @param motDePasse
 	 */
-	public void traiterIdentification(String pseudo, String motDePasse){
-
-		Client c = new Client();
-		c = Client.rechercherClientParPseudo(pseudo,motDePasse);
-
-
+	public StructResult statraiterIdentification(String pseudo, String motDePasse){
+		StructResult result = new StructResult();
+		Client client = Client.rechercherClientParPseudo(pseudo, motDePasse);
+		if(client != null) {
+			if(ecranCourant == TypeEcran.ACCEUIL)
+			{
+				result.typeEcran = null; //TODO a completer
+				result.client = client;
+			}
+		}
+		return result;
 	}
 
 	public boolean validationConnexion(){
